@@ -138,7 +138,7 @@ class join_Screen extends JFrame implements ActionListener {
 		//아이디 중복확인 버튼
 		if (obj == ID_Overlap) {
 			//DB에 입력받은 아이디가 중복되는지 안되는지 확인
-			if(sdb.overlapID(ID_In.getText())) {
+			if(sdb.overlap(ID_In.getText(), "ID")) {
 				id = false;
 				//예스면 0, 노면 1 반환
 				n = JOptionPane.showConfirmDialog(this, "사용 가능한 아이디입니다.\n사용하시겠습니까?", "아이디 중복여부", JOptionPane.YES_NO_OPTION);
@@ -155,7 +155,7 @@ class join_Screen extends JFrame implements ActionListener {
 		//닉네임 중복확인 버튼
 		else if (obj == NickName_Overlap) {
 			//DB에 입력받은 닉네임이 중복되는지 안되는지 확인
-			if(sdb.overlapName(NickName_In.getText())) {
+			if(sdb.overlap(NickName_In.getText(), "name")) {
 				name = false;
 				//예스면 0, 노면 1 반환
 				n = JOptionPane.showConfirmDialog(this, "사용 가능한 닉네임입니다.\n사용하시겠습니까?", "닉네임 중복여부", JOptionPane.YES_NO_OPTION);
@@ -175,7 +175,7 @@ class join_Screen extends JFrame implements ActionListener {
 			//입력한 이메일 문자열 s에 저장
 			String s = email.getText()+ jl.getText() + com.getSelectedItem();
 			//이메일 중복여부 확인
-			if(!sdb.overlapEmail(s)) {
+			if(!sdb.overlap(s, "email")) {
 				JOptionPane.showMessageDialog(this, "이미 사용중인 이메일입니다.!!");
 			}
 			//name과 id 중복확인을 했는지 체크, 빈공간 없는지 체크
