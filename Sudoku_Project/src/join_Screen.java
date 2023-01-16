@@ -137,9 +137,10 @@ class join_Screen extends JFrame implements ActionListener {
 		Sudoku_DB sdb = new Sudoku_DB();
 		//아이디 중복확인 버튼
 		if (obj == ID_Overlap) {
+			id = false;
 			//DB에 입력받은 아이디가 중복되는지 안되는지 확인
 			if(sdb.overlap(ID_In.getText(), "ID")) {
-				id = false;
+				
 				//예스면 0, 노면 1 반환
 				n = JOptionPane.showConfirmDialog(this, "사용 가능한 아이디입니다.\n사용하시겠습니까?", "아이디 중복여부", JOptionPane.YES_NO_OPTION);
 				//예 눌렸을 경우
@@ -205,6 +206,7 @@ class join_Screen extends JFrame implements ActionListener {
 			else if(!id && name) JOptionPane.showMessageDialog(this, "아이디 중복확인을 해주세요");
 			//닉네임 중복확인 안했을 경우
 			else if(id && !name) JOptionPane.showMessageDialog(this, "닉네임 중복확인을 해주세요");
+			else if(!id && !name) JOptionPane.showMessageDialog(this, "아이디와 닉네임 중복확인을 해주세요");
 		}
 		//새로 입력 버튼
 		else if (obj == New_In) {
